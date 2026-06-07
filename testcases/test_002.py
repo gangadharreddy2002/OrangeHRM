@@ -1,5 +1,5 @@
-from OrangeHRM.POM.login import Login
-from OrangeHRM.POM.storyboard import *
+from POM.login import Login
+from POM.storyboard import *
 from conftest import *
 
 def test_Tc001(launch):

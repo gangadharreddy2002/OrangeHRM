@@ -1,7 +1,7 @@
 from time import sleep
 import pytest
 from selenium.webdriver import Chrome,ChromeOptions
-from OrangeHRM.utilites.verification import *
+from utilites.verification import *
 base=r"https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
 @pytest.fixture
 def launch():
