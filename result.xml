@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="2" time="113.052" timestamp="2026-06-07T19:33:24.444559+05:30" hostname="LAPTOP-90SR3SVB"><testcase classname="testcases.test_001" name="test_TC001" time="57.750"><failure message="FileNotFoundError: [Errno 2] No such file or directory: '../../OrangeHRM/excel_files/login_page.xls'">launch = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="66833b5c927028a0e8f7fdae90e006a2")&gt;
+
+    def test_TC001(launch):
+        driver=launch
+        login=Login(driver)
+&gt;       d = read_data("../../OrangeHRM/excel_files/login_page.xls", "logindata")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+testcases\test_001.py:15: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+utilites\xlutilites.py:12: in read_data
+    workbook=open_workbook(filename)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+filename = '../../OrangeHRM/excel_files/login_page.xls'
+logfile = &lt;EncodedFile name='&lt;tempfile._TemporaryFileWrapper object at 0x000001CFC0DBFE00&gt;' mode='r+' encoding='utf-8'&gt;
+verbosity = 0, use_mmap = 1, file_contents = None, encoding_override = None
+formatting_info = False, on_demand = False, ragged_rows = False
+
+    def open_workbook(filename=None,
+                      logfile=sys.stdout,
+                      verbosity=0,
+                      use_mmap=USE_MMAP,
+                      file_contents=None,
+                      encoding_override=None,
+                      formatting_info=False,
+                      on_demand=False,
+                      ragged_rows=False):
+        """
+        Open a spreadsheet file for data extraction.
+    
+        :param filename: The path to the spreadsheet file to be opened.
+    
+        :param logfile: An open file to which messages and diagnostics are written.
+    
+        :param verbosity: Increases the volume of trace material written to the
+                          logfile.
+    
+        :param use_mmap:
+    
+          Whether to use the mmap module is determined heuristically.
+          Use this arg to override the result.
+    
+          Current heuristic: mmap is used if it exists.
+    
+        :param file_contents:
+    
+          A string or an :class:`mmap.mmap` object or some other behave-alike
+          object. If ``file_contents`` is supplied, ``filename`` will not be used,
+          except (possibly) in messages.
+    
+        :param encoding_override:
+    
+          Used to overcome missing or bad codepage information
+          in older-version files. See :doc:`unicode`.
+    
+        :param formatting_info:
+    
+          The default is ``False``, which saves memory.
+          In this case, "Blank" cells, which are those with their own formatting
+          information but no data, are treated as empty by ignoring the file's
+          ``BLANK`` and ``MULBLANK`` records.
+          This cuts off any bottom or right "margin" of rows of empty or blank
+          cells.
+          Only :meth:`~xlrd.sheet.Sheet.cell_value` and
+          :meth:`~xlrd.sheet.Sheet.cell_type` are available.
+    
+          When ``True``, formatting information will be read from the spreadsheet
+          file. This provides all cells, including empty and blank cells.
+          Formatting information is available for each cell.
+    
+          Note that this will raise a NotImplementedError when used with an
+          xlsx file.
+    
+        :param on_demand:
+    
+          Governs whether sheets are all loaded initially or when demanded
+          by the caller. See :doc:`on_demand`.
+    
+        :param ragged_rows:
+    
+          The default of ``False`` means all rows are padded out with empty cells so
+          that all rows have the same size as found in
+          :attr:`~xlrd.sheet.Sheet.ncols`.
+    
+          ``True`` means that there are no empty cells at the ends of rows.
+          This can result in substantial memory savings if rows are of widely
+          varying sizes. See also the :meth:`~xlrd.sheet.Sheet.row_len` method.
+    
+        :returns: An instance of the :class:`~xlrd.book.Book` class.
+        """
+    
+        peeksz = 4
+        if file_contents:
+            peek = file_contents[:peeksz]
+        else:
+            filename = os.path.expanduser(filename)
+&gt;           with open(filename, "rb") as f:
+                 ^^^^^^^^^^^^^^^^^^^^
+E           FileNotFoundError: [Errno 2] No such file or directory: '../../OrangeHRM/excel_files/login_page.xls'
+
+C:\Users\reddy\AppData\Local\Programs\Python\Python313\Lib\site-packages\xlrd\__init__.py:111: FileNotFoundError</failure></testcase><testcase classname="testcases.test_002" name="test_Tc001" time="45.692"><failure message="NameError: name 'send_keys' is not defined">launch = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="b4a347526fd757392853e3199aecc6ba")&gt;
+
+    def test_Tc001(launch):
+        driver=launch
+        login=Login(driver)
+        email=login.email_textfield()
+&gt;       send_keys(driver,email,"Admin")
+        ^^^^^^^^^
+E       NameError: name 'send_keys' is not defined
+
+testcases\test_002.py:8: NameError</failure></testcase></testsuite></testsuites>

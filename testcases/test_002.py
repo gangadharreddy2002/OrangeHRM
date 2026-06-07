@@ -1,6 +1,5 @@
 from POM.login import Login
 from POM.storyboard import *
-from conftest import *
 
 def test_Tc001(launch):
     driver=launch

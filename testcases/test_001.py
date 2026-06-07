@@ -1,6 +1,5 @@
 from POM.login import Login
 from utilites.xlutilites import read_data
-from conftest import *
 # def test_Tc001(launch):
 #     driver=launch
 #     login=Login(driver)
