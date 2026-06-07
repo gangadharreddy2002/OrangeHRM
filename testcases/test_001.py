@@ -1,5 +1,6 @@
 from POM.login import Login
 from utilites.xlutilites import read_data
+from utilites.verification import send_keys, click_element
 # def test_Tc001(launch):
 #     driver=launch
 #     login=Login(driver)
@@ -12,7 +13,7 @@ from utilites.xlutilites import read_data
 def test_TC001(launch):
     driver=launch
     login=Login(driver)
-    d = read_data("../../OrangeHRM/excel_files/login_page.xls", "logindata")
+    d = read_data("../excel_files/login_page.xls", "logindata")
     while True:
         for i,j in d.items():
             print(f"Attempting login with username: {i}, password: {j}")
