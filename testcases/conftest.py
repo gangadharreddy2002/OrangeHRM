@@ -11,7 +11,7 @@ def launch():
     driver.get(base)
     driver.maximize_window()
     driver.implicitly_wait(10)
-    # sleep(10)
+    sleep(10)
     # assert driver.title==title,"title is not mathing"
     verify_page(driver,"OrangeHRM")
     yield  driver
