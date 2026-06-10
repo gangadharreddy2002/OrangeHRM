@@ -4,8 +4,17 @@ import os
 def _resolve_path(filename):
     if os.path.isabs(filename):
         return filename
-    base = os.path.dirname(os.path.dirname(__file__))
-    return os.path.normpath(os.path.join(base, filename))
+
+    root = os.path.dirname(os.path.dirname(__file__))
+    candidate = os.path.normpath(os.path.join(root, filename))
+    if os.path.exists(candidate):
+        return candidate
+
+    normalized = os.path.normpath(filename)
+    while normalized.startswith('..' + os.sep):
+        normalized = normalized[len('..' + os.sep):]
+    normalized = normalized.lstrip(os.sep)
+    return os.path.normpath(os.path.join(root, normalized))
 
 
 def read_locators(filename,sheetname):
