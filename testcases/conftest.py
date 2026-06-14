@@ -23,3 +23,5 @@ def launch():
     yield  driver
     sleep(10)
     driver.close()
+
+    
