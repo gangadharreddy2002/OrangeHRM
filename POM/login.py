@@ -11,7 +11,7 @@ class Login():
             lambda d: d.find_element("xpath", "//input[@name='username']"))
     def login_button(self):
         return WebDriverWait(self.driver, 20).until(
-            lambda d: d.find_element("xpath","//div[@class='oxd-form-actions orangehrm-login-action']"))
+            lambda d: d.find_element("xpath","//button[@type='submit']"))
     def forgot_password_link(self):
         return WebDriverWait(self.driver, 20).until(
             lambda d: d.find_element("xpath","//div[@class='orangehrm-login-forgot']"))

@@ -3,10 +3,10 @@ from utilites.xlutilites import read_data
 from utilites.verification import send_keys, click_element
 
 def test_TC001(launch):
-    driver=launch
-    login=Login(driver)
     d = read_data("excel_files/login_page.xls", "logindata")
     for i,j in d.items():
+        driver = launch
+        login = Login(driver)
         print(f"Attempting login with username: {i}, password: {j}")
         email=login.email_textfield()
         send_keys(driver,email,i)
