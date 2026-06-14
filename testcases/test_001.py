@@ -1,15 +1,7 @@
 from POM.login import Login
 from utilites.xlutilites import read_data
 from utilites.verification import send_keys, click_element
-# def test_Tc001(launch):
-#     driver=launch
-#     login=Login(driver)
-#     email=login.email_textfield()
-#     send_keys(driver,email,"Admin")
-#     pasword=login.password_textfield()
-#     send_keys(driver,pasword,"admin123")
-#     loginbtn=login.login_button()
-#     click_element(driver,loginbtn)
+
 def test_TC001(launch):
     driver=launch
     login=Login(driver)

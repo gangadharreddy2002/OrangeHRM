@@ -29,9 +29,13 @@ def send_keys(driver,ele,inp):
         return False
 def verify_page(driver,excepted):
     try:
-        driver.title==excepted
+        assert driver.title == excepted, f"Title mismatch. Expected: {excepted}, Got: {driver.title}"
         return True
-    except:
+    except AssertionError as e:
         save_screenshot(driver)
-        print("title doesn't match!!!!")
+        print(f"title doesn't match!!!! {e}")
+        return False
+    except Exception as e:
+        save_screenshot(driver)
+        print(f"Error verifying page: {e}")
         return False
