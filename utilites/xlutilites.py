@@ -7,18 +7,18 @@ def _resolve_path(filename):
 
     # Get the project root (parent of utilities folder)
     root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    
+
     # Try direct path first
     candidate = os.path.normpath(os.path.join(root, filename))
     if os.path.exists(candidate):
         return candidate
-    
+
     # Remove leading .. if present
     normalized = os.path.normpath(filename)
     while normalized.startswith('..' + os.sep):
         normalized = normalized[len('..' + os.sep):]
     normalized = normalized.lstrip(os.sep)
-    
+
     final_path = os.path.normpath(os.path.join(root, normalized))
     if not os.path.exists(final_path):
         raise FileNotFoundError(f"Excel file not found: {final_path}\nLooking for: {filename}\nProject root: {root}")

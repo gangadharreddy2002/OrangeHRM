@@ -29,7 +29,7 @@ def send_keys(driver,ele,inp):
         return False
 def verify_page(driver,excepted):
     try:
-        assert driver.title == excepted, f"Title mismatch. Expected: {excepted}, Got: {driver.title}"
+        assert driver.url == excepted, f"Title mismatch. Expected: {excepted}, Got: {driver.url}"
         return True
     except AssertionError as e:
         save_screenshot(driver)

@@ -11,3 +11,5 @@ class Storyboard:
         return self.driver.find_element("xpath","//a[text()='Change Password']")
     def Logout_button(self):
         return self.driver.find_element("xpath","//a[text()='Logout']")
+    def about_cancel(self):
+        return self.driver.find_element("xpath","//button[@class='oxd-dialog-close-button oxd-dialog-close-button-position']")

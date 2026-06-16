@@ -1,8 +1,8 @@
 from POM.login import Login
 from utilites.xlutilites import read_data
 from utilites.verification import send_keys, click_element
-
-def test_TC001(launch):
+# class Test_Login():
+def test_datadriver_login(launch):
     d = read_data("excel_files/login_page.xls", "logindata")
     for i,j in d.items():
         driver = launch
